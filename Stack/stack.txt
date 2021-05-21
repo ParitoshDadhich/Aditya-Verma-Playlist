@@ -1,0 +1,16 @@
+1. Nearest Greater to left
+2. Nearest Greater to right
+3. Nearest smaller to left
+4. Nearest samller to right
+
+5. Stock span problem
+6. Maximum area of histogram
+
+7. Max area of rectangle in binary matrix
+
+8. Rain water trapping
+9. Implementing a min stock
+10. Implementing stack using heap
+11. The celebraity problem
+12. Longer valid parenthesis
+13. Iterative TOH
