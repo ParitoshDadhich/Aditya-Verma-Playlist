@@ -1,32 +1,42 @@
-import java.util.*;
 
-public class Solution 
-{
-    public static ArrayList<Integer> firstNegativeInteger(ArrayList<Integer> arr, int k, int n)
+class Compute {
+    
+    public long[] printFirstNegativeInteger(long arr[], int n, int k)
     {
-        int i = 0;
-        int j = 0;
-        Queue<Integer> queue = new LinkedList<>();
-        ArrayList<Integer> list = new ArrayList<>();
+        ArrayList<Long> list = new ArrayList<>();
+        Queue<Long> queue = new ArrayDeque<>();
+        int i=0;
+        int j=0;
+        long nonNeg = 0;
         while(j<n){
-            if(arr.get(j) < 0)
-                queue.add(arr.get(j));
-            if((j-i+1)<k)
+            if(arr[j] < 0)
+                queue.add(arr[j]);
+            
+            if(j-i+1<k)
                 j++;
-            else if((j-i+1)==k){
+            else if(j-i+1 == k){
+                // list.add(queue.peek());
                 if(queue.size() == 0)
-                    list.add(0);
-                else if(arr.get(i) == queue.element()){
-                	int s = queue.poll();
-                	list.add(s);
-            	}
-                else{
-                    list.add(queue.element());
-            	}
-                    i++;
-                    j++;
-                }
+                    list.add(nonNeg);
+                else
+                    list.add(queue.peek());
+                
+                if(!queue.isEmpty() && queue.peek() == arr[i])
+                    queue.poll();
+         
+                i++;
+                j++;
             }
-        return list;
+        }
+        
+        long ans[] = new long[list.size()];
+        for(i=0; i<list.size(); i++)
+            ans[i] = list.get(i);
+            
+        return ans;
+        
     }
 }
+
+
+     
